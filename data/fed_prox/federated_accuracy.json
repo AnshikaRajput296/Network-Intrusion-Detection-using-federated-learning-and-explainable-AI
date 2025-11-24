@@ -1,0 +1,7 @@
+{
+    "accuracy": 0.8535,
+    "privacy_score": 0.4819,
+    "attack_auc": 0.5016,
+    "threshold": 0.7849,
+    "rounds": 10
+}

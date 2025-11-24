@@ -1,0 +1,27 @@
+{
+    "feature_names": [
+        "dur",
+        "proto",
+        "service",
+        "state",
+        "spkts",
+        "dpkts",
+        "sbytes",
+        "dbytes",
+        "rate",
+        "sload",
+        "dload",
+        "sloss",
+        "dloss",
+        "sinpkt",
+        "dinpkt",
+        "sjit"
+    ],
+    "num_samples": 900,
+    "num_features": 16,
+    "shap_shape": [
+        900,
+        16,
+        6
+    ]
+}
