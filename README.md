@@ -47,10 +47,43 @@ cd Network-Intrusion-Detection-using-federated-learning-and-explainable-AI
 ```bash
 pip install -r requirements.txt
 ```
-### 3. Run Baseline Decision Tree
-### 4. Run fedavg, fedprox models
-### 5. Run MIA jupyter notebook for evaluating Privacy Score
-### 6. Launch Interactive Dashboard using command prompt
+### 3. Download Datasets Using Kaggle API
+
+This project uses datasets hosted on Kaggle. You must configure the Kaggle API before downloading.
+#### Step 3.1: Install Kaggle
+pip install kaggle
+
+#### Step 3.2: Configure Kaggle API
+Go to Kaggle → Account → Create New API Token
+Download the kaggle.json file
+Place kaggle.json in the project root directory
+
+#### Run the following commands:
+```bash
+mkdir -p ~/.kaggle
+cp kaggle.json ~/.kaggle/
+chmod 600 ~/.kaggle/kaggle.json
+```
+#### Step 3.3: Download and Extract Datasets
+Create a directory for datasets (recommended):
+```bash
+mkdir data
+cd data
+```
+#### UNSW-NB15 Dataset
+```bash
+kaggle datasets download -d dhoogla/unswnb15 -q
+unzip -q unswnb15.zip
+```
+#### NF-UQ-NIDS Dataset
+```bash
+kaggle datasets download -d aryashah2k/nfuqnidsv2-network-intrusion-detection-dataset -q
+unzip -q nfuqnidsv2-network-intrusion-detection-dataset.zip
+```
+### 4. Run Baseline Decision Tree
+### 5. Run fedavg, fedprox models
+### 6. Run MIA jupyter notebook for evaluating Privacy Score
+### 7. Launch Interactive Dashboard using command prompt
 ```bash
 streamlit run app.py
 ```
@@ -62,6 +95,26 @@ streamlit run app.py
 -	Federated Learning (FedAvg, FedProx)
 -	SHAP (Explainable AI)
 -	Plotly Dash<br>
+
+ ## 📁 Datasets Used
+
+TThis project uses two real-world intrusion detection datasets obtained from Kaggle to simulate non-IID federated clients, reflecting realistic distributed network environments.
+
+## 1. UNSW-NB15
+
+- Source: Kaggle 
+- Description: A modern network traffic dataset containing both normal and malicious activities generated using real network behavior
+- Attack Types: DoS, Exploits, Fuzzers, Reconnaissance, Shellcode, Worms
+- Role in Project: Federated Client 1
+
+## 2. NF-UQ-NIDS
+
+- Source: Kaggle
+- Description: A NetFlow-based intrusion detection dataset designed for large-scale and distributed network monitoring
+- Attack Types: DDoS, Brute Force, Botnet, Port Scan
+- Role in Project: Federated Client 2
+
+The datasets are heterogeneous (non-IID) in both feature distribution and attack frequency, making them well-suited for evaluating FedAvg and FedProx under realistic federated learning conditions.
 
 ## Future Enhancements
 - Support for multiple federated clients
